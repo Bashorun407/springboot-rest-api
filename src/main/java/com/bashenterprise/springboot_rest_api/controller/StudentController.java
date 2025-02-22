@@ -4,6 +4,9 @@ import com.bashenterprise.springboot_rest_api.bean.Student;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class StudentController {
 
@@ -18,4 +21,20 @@ public class StudentController {
         );
     return student;
     }
+
+    @GetMapping("/students")
+    public List<Student> getStudents(){
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(1L, "Ade", "Baba"));
+        students.add(new Student(2L, "Shola", "Ogun"));
+        students.add(new Student(3L, "Tola", "Ola"));
+        students.add(new Student(4L, "Folu", "Akin"));
+        students.add(new Student(5L, "Gbenga", "Oye"));
+        students.add(new Student(6L, "Ajayi", "Akanni"));
+        students.add(new Student(7L, "Dolapo", "Majekodunmi"));
+
+        return students;
+    }
+
 }
+

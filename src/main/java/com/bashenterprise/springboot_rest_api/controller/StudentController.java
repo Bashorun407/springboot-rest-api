@@ -2,6 +2,7 @@ package com.bashenterprise.springboot_rest_api.controller;
 
 import com.bashenterprise.springboot_rest_api.bean.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -36,5 +37,15 @@ public class StudentController {
         return students;
     }
 
-}
+    //SPRING BOOT REST API with PATH VARIABLE Annotation
+    //Path variable binds method argument to URI template
+    //URI template {id}
 
+    @GetMapping("/student/{id}/{first-name}/{last-name}")
+    public Student studentPathVariable(
+            @PathVariable int id,
+            @PathVariable("first-name") String firstName,
+            @PathVariable("last-name") String lastName){
+        return new Student(id, firstName, lastName);
+    }
+}
